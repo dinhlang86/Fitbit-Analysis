@@ -7,7 +7,99 @@
         "x": 0,
         "y": 0
       },
-      "nodes": [],
+      "nodes": [
+        {
+          "location": {
+            "x": 297.55447794955535,
+            "y": 336.22078437129221
+          },
+          "nodeIndex": "Customer",
+          "nodeLineageTag": "7e552cee-987b-4a61-bec9-b99e82e38930",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 340.86813507845045
+          },
+          "nodeIndex": "DailyCalory",
+          "nodeLineageTag": "6008e592-bd11-44f7-b2a4-acbe433df48e",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 669.87061151346222,
+            "y": 336.19771430230219
+          },
+          "nodeIndex": "DailyIntensity",
+          "nodeLineageTag": "1ecdc86e-50c2-4622-8d7c-17b2370222b8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 560.17735333785379,
+            "y": 695.42105488796358
+          },
+          "nodeIndex": "DailyStep",
+          "nodeLineageTag": "8e0f2fa7-cf07-4e1f-9d19-307088c58832",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 45.923930291904412,
+            "y": 716.12227539158675
+          },
+          "nodeIndex": "HeartrateSecond",
+          "nodeLineageTag": "f906745a-4a3f-43f8-9be4-241c499f5e80",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "SleepDay",
+          "nodeLineageTag": "64be0354-03a3-4bbf-9829-25ac219fe27c",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 452.24371984132335,
+            "y": 0
+          },
+          "nodeIndex": "WeightLogInfo",
+          "nodeLineageTag": "ace60876-ee2c-464d-9472-a41b8577928b",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
       "name": "All tables",
       "zoomValue": 100,
       "pinKeyFieldsToTop": false,
