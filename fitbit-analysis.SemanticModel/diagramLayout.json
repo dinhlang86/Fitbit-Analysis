@@ -4,27 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
-        "y": 0
+        "x": 157,
+        "y": 200
       },
       "nodes": [
         {
           "location": {
-            "x": 297.55447794955535,
-            "y": 336.22078437129221
-          },
-          "nodeIndex": "Customer",
-          "nodeLineageTag": "7e552cee-987b-4a61-bec9-b99e82e38930",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 0,
-            "y": 340.86813507845045
+            "x": 242,
+            "y": 278.86813507845045
           },
           "nodeIndex": "DailyCalory",
           "nodeLineageTag": "6008e592-bd11-44f7-b2a4-acbe433df48e",
@@ -36,8 +23,8 @@
         },
         {
           "location": {
-            "x": 669.87061151346222,
-            "y": 336.19771430230219
+            "x": 593.87061151346222,
+            "y": 614.19771430230219
           },
           "nodeIndex": "DailyIntensity",
           "nodeLineageTag": "1ecdc86e-50c2-4622-8d7c-17b2370222b8",
@@ -49,8 +36,8 @@
         },
         {
           "location": {
-            "x": 560.17735333785379,
-            "y": 695.42105488796358
+            "x": 612.17735333785379,
+            "y": 404.42105488796358
           },
           "nodeIndex": "DailyStep",
           "nodeLineageTag": "8e0f2fa7-cf07-4e1f-9d19-307088c58832",
@@ -62,8 +49,8 @@
         },
         {
           "location": {
-            "x": 45.923930291904412,
-            "y": 716.12227539158675
+            "x": 299.92393029190441,
+            "y": 784.12227539158675
           },
           "nodeIndex": "HeartrateSecond",
           "nodeLineageTag": "f906745a-4a3f-43f8-9be4-241c499f5e80",
@@ -75,7 +62,7 @@
         },
         {
           "location": {
-            "x": 0,
+            "x": 239,
             "y": 0
           },
           "nodeIndex": "SleepDay",
@@ -88,13 +75,76 @@
         },
         {
           "location": {
-            "x": 452.24371984132335,
-            "y": 0
+            "x": 616.24371984132335,
+            "y": 7
           },
           "nodeIndex": "WeightLogInfo",
           "nodeLineageTag": "ace60876-ee2c-464d-9472-a41b8577928b",
           "size": {
             "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 996.87061151346222,
+            "y": 245.06113769579338
+          },
+          "nodeIndex": "DateCalendar",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1367.8706115134623,
+            "y": 262.06113769579338
+          },
+          "nodeIndex": "TimeCalendar",
+          "nodeLineageTag": "5fd4fd17-3223-4485-a542-65b26b71ce45",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 488.22078437129221
+          },
+          "nodeIndex": "User",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1203.8706115134623,
+            "y": 506.06113769579338
+          },
+          "nodeIndex": "HourlyCalory",
+          "nodeLineageTag": "edc54005-e8b7-4f66-aac0-601f6d6b54ad",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1319.8706115134623,
+            "y": 761.06113769579338
+          },
+          "nodeIndex": "HourlyStep",
+          "nodeLineageTag": "25d5c7c2-7994-4787-a271-ce82d6230aca",
+          "size": {
+            "height": 200,
             "width": 234
           },
           "zIndex": 0
