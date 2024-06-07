@@ -809,6 +809,44 @@
             "lineageTag": "846a43d4-016b-4d59-9b6e-8daf8719b1ad",
             "summarizeBy": "sum",
             "type": "calculated"
+          },
+          {
+            "name": "Total Active Minute",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "DailyIntensity[FairlyActiveMinutes] + DailyIntensity[LightlyActiveMinutes] + DailyIntensity[SedentaryMinutes] + DailyIntensity[VeryActiveMinutes] ",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "fa37d64c-3ed4-4a90-a8b2-06fdb4881a2c",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "Usage Level",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "SWITCH (",
+              "    TRUE (),",
+              "    DailyIntensity[Total Active Minute] >= 1440, \"Full Usage\",",
+              "    DailyIntensity[Total Active Minute] < 1440 && DailyIntensity[Total Active Minute] >= 480, \"Moderate Usage\",",
+              "    \"Light Usage\"",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "6b61fb8f-4d16-4ff8-b1ea-83737f0e347b",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "lineageTag": "1ecdc86e-50c2-4622-8d7c-17b2370222b8",
@@ -1137,6 +1175,117 @@
             "lineageTag": "a085ab82-e07c-4c1d-9bea-026fe2935c68",
             "sourceColumn": "SleepDate",
             "summarizeBy": "none"
+          },
+          {
+            "name": "User Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": "RELATED(User[Name]) ",
+            "isDataTypeInferred": true,
+            "lineageTag": "984cc855-11ad-405e-9d9a-06025d434fd3",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Total Hours Asleep",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "expression": "SleepDay[TotalMinutesAsleep] / 60 ",
+            "formatString": "0.00",
+            "isDataTypeInferred": true,
+            "lineageTag": "eb95deaa-53e3-4a95-82ca-ea6a61973156",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "Total Time In Bed",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "expression": "SleepDay[TotalTimeInBed] / 60 ",
+            "formatString": "0.00",
+            "isDataTypeInferred": true,
+            "lineageTag": "e0be34af-5feb-4fcd-8ee4-97fa84c9a19c",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "Sleep Category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              " VAR AvgSleep = CALCULATE(",
+              "    AVERAGE(SleepDay[Total Hours Asleep]),",
+              "    ALLEXCEPT(SleepDay, SleepDay[UserId])",
+              " )",
+              " RETURN",
+              " SWITCH(",
+              "    TRUE(),",
+              "    AvgSleep < 5, \"0-5h\",",
+              "    AvgSleep >= 5 && AvgSleep < 6, \"5-6h\",",
+              "    AvgSleep >= 6 && AvgSleep < 7, \"6-7h\",",
+              "    AvgSleep >= 7 && AvgSleep < 8, \"7-8h\",",
+              "    \"8h+\")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "eed20bb2-fdf7-49c3-accc-eef706272f64",
+            "sortByColumn": "Sleep Category Order",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Sleep Category Order",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": [
+              "",
+              "    VAR AvgSleep = CALCULATE(",
+              "        AVERAGE(SleepDay[Total Hours Asleep]),",
+              "        ALLEXCEPT(SleepDay, SleepDay[UserId]))",
+              "    RETURN",
+              "    SWITCH(",
+              "        TRUE(),",
+              "        AvgSleep < 5, 1,",
+              "        AvgSleep >= 5 && AvgSleep < 6, 2,",
+              "        AvgSleep >= 6 && AvgSleep < 7, 3,",
+              "        AvgSleep >= 7 && AvgSleep < 8, 4,",
+              "        5)"
+            ],
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "eb2587b2-b16f-4d21-aa33-8213ab6c1f13",
+            "summarizeBy": "sum",
+            "type": "calculated"
           }
         ],
         "lineageTag": "64be0354-03a3-4bbf-9829-25ac219fe27c",
@@ -1682,10 +1831,11 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "string",
+            "dataType": "int64",
+            "formatString": "0",
             "lineageTag": "4638c732-181c-4923-90bd-4d783d6a4ec4",
             "sourceColumn": "UserId",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           },
           {
             "name": "StepTotal",
@@ -1695,10 +1845,11 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "string",
+            "dataType": "int64",
+            "formatString": "0",
             "lineageTag": "4b71fbc3-fe4e-43ec-95e3-4047fd1391b1",
             "sourceColumn": "StepTotal",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Date",
@@ -1754,9 +1905,10 @@
                 "    #\"Duplicated Column1\" = Table.DuplicateColumn(#\"Inserted Date\", \"ActivityHour\", \"ActivityHour - Copy.1\"),",
                 "    #\"Inserted Time\" = Table.AddColumn(#\"Duplicated Column1\", \"Time\", each DateTime.Time([#\"ActivityHour - Copy.1\"]), type time),",
                 "    #\"Removed Columns\" = Table.RemoveColumns(#\"Inserted Time\",{\"ActivityHour\", \"ActivityHour - Copy\", \"ActivityHour - Copy.1\"}),",
-                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Removed Columns\",{{\"Id\", \"UserId\"}})",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Removed Columns\",{{\"Id\", \"UserId\"}}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"UserId\", Int64.Type}, {\"StepTotal\", Int64.Type}})",
                 "in",
-                "    #\"Renamed Columns\""
+                "    #\"Changed Type\""
               ],
               "type": "m"
             }
