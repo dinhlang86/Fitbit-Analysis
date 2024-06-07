@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 157,
-        "y": 200
+        "x": 0,
+        "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 242,
-            "y": 278.86813507845045
+            "x": 290,
+            "y": 296.86813507845045
           },
           "nodeIndex": "DailyCalory",
           "nodeLineageTag": "6008e592-bd11-44f7-b2a4-acbe433df48e",
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 593.87061151346222,
-            "y": 614.19771430230219
+            "x": 651.87061151346222,
+            "y": 631.19771430230219
           },
           "nodeIndex": "DailyIntensity",
           "nodeLineageTag": "1ecdc86e-50c2-4622-8d7c-17b2370222b8",
@@ -36,8 +36,8 @@
         },
         {
           "location": {
-            "x": 612.17735333785379,
-            "y": 404.42105488796358
+            "x": 672.17735333785379,
+            "y": 403.42105488796358
           },
           "nodeIndex": "DailyStep",
           "nodeLineageTag": "8e0f2fa7-cf07-4e1f-9d19-307088c58832",
@@ -62,7 +62,7 @@
         },
         {
           "location": {
-            "x": 239,
+            "x": 302,
             "y": 0
           },
           "nodeIndex": "SleepDay",
@@ -75,7 +75,7 @@
         },
         {
           "location": {
-            "x": 616.24371984132335,
+            "x": 687.24371984132335,
             "y": 7
           },
           "nodeIndex": "WeightLogInfo",
@@ -88,10 +88,11 @@
         },
         {
           "location": {
-            "x": 996.87061151346222,
+            "x": 1038.8706115134623,
             "y": 245.06113769579338
           },
           "nodeIndex": "DateCalendar",
+          "nodeLineageTag": "ab2f7a36-8205-47d6-b39e-597be9a57819",
           "size": {
             "height": 200,
             "width": 234
