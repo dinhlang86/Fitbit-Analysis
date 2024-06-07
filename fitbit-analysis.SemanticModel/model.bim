@@ -1286,6 +1286,22 @@
             "lineageTag": "eb2587b2-b16f-4d21-aa33-8213ab6c1f13",
             "summarizeBy": "sum",
             "type": "calculated"
+          },
+          {
+            "name": "Total Wasted Minutes In Bed",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "SleepDay[TotalTimeInBed] - SleepDay[TotalMinutesAsleep]",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "0f9f4c48-7ed7-4670-b9ee-c6b313b37191",
+            "summarizeBy": "sum",
+            "type": "calculated"
           }
         ],
         "lineageTag": "64be0354-03a3-4bbf-9829-25ac219fe27c",
