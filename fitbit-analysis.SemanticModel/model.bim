@@ -16,7 +16,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"User\",\"DailyCalory\",\"DailyIntensity\",\"DailyStep\",\"HeartrateSecond\",\"SleepDay\",\"WeightLogInfo\",\"HourlyCalory\",\"HourlyStep\"]"
+        "value": "[\"User\",\"DailyCalory\",\"DailyIntensity\",\"DailyStep\",\"HeartrateSecond\",\"SleepDay\",\"WeightLogInfo\",\"HourlyCalory\",\"HourlyStep\",\"Measures Table\"]"
       }
     ],
     "culture": "en-US",
@@ -1925,6 +1925,65 @@
                 "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"UserId\", Int64.Type}, {\"StepTotal\", Int64.Type}})",
                 "in",
                 "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Measures Table",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "lineageTag": "6058b697-c517-4257-9817-0758eccd026b",
+        "measures": [
+          {
+            "name": "Max of Asleep Time",
+            "expression": "CONCATENATE(ROUND(MAX(SleepDay[Total Hours Asleep]), 2), \"h\")",
+            "lineageTag": "01066222-f9db-40e1-9cb8-89848e7845b4"
+          },
+          {
+            "name": "Min of Asleep Time",
+            "expression": "CONCATENATE(ROUND(MIN(SleepDay[Total Hours Asleep]), 2), \"h\") ",
+            "lineageTag": "202a728c-639d-407c-bfcc-b7579a227811"
+          },
+          {
+            "name": "Max of Time In Bed",
+            "expression": "CONCATENATE(ROUND(MAX(SleepDay[Total Time In Bed]), 2), \"h\") ",
+            "lineageTag": "8cf15fd2-f432-4e82-a1fb-2011edb3f614"
+          },
+          {
+            "name": "Min of Time In Bed",
+            "expression": "CONCATENATE(ROUND(MIN(SleepDay[Total Time In Bed]), 2), \"h\") ",
+            "lineageTag": "6df15c98-a6a5-4948-84df-f191d7c8550d"
+          },
+          {
+            "name": "Max of Wasted Time In Bed",
+            "expression": "CONCATENATE(MAX(SleepDay[Total Wasted Minutes In Bed]), \"min\") ",
+            "lineageTag": "85570c0b-0dba-4b03-a6e2-474fd6bbab39"
+          },
+          {
+            "name": "Min of Wasted Time In Bed",
+            "expression": "CONCATENATE(MIN(SleepDay[Total Wasted Minutes In Bed]), \"min\") ",
+            "lineageTag": "69b35563-96c5-4be4-8e84-7b8697b86931"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Measures Table",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Column1\", type text}}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Changed Type\",{\"Column1\"})",
+                "in",
+                "    #\"Removed Columns\""
               ],
               "type": "m"
             }
